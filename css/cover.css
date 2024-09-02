@@ -258,7 +258,7 @@
 .cover-6-desc input {
     padding: 10px;
     color: black;
-    width: 380px;
+    width: 350px;
     border: 1px solid;
     border-radius: 12px;
 }
@@ -268,7 +268,7 @@
     font-size: 35px;
     position: absolute;
     top: 6px;
-    left: 330px;
+    left: 300px;
     cursor: pointer;
 }
 
