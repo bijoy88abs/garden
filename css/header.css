@@ -7,6 +7,18 @@ body {
     background-color: #00160C;
 }
 
+.offcanvas-bg {
+    background: #b5c547;
+    background-image: linear-gradient(to bottom right, #101302, #9baf71);
+    color: white;
+}
+
+.offcanvas-bg .list-group-item {
+    background: #b5c547 !important;
+    background-image: linear-gradient(to bottom right, #728517, #b5c547) !important;
+    color: white !important;
+}
+
 .header-menu {
     background-color: #00160C;
     color: white;
