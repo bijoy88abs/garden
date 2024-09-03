@@ -1,6 +1,8 @@
 .bestseller-wrapper {
-    padding: 10px;
-    width: 98%;
+    left: 0;
+    right: 0;
+    width: 90vw;
+    margin: 0 auto;
 }
 
 .bestseller-item {
