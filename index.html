@@ -81,7 +81,7 @@
 						</div>
 						<div class="submenu-contacts-2">
 							<p><i class="fa-solid fa-cart-shopping"></i></p>
-							<p>$0.00usd</p>
+							<p>$0.00</p>
 						</div>
 					</div>
 				</div>
@@ -148,7 +148,7 @@
 
 					<div class="row">
 						<div class="col-8 text-white">
-							<h3 style="color: #b5c547;" id="cart-item-title"></h3>						
+							<h3 style="color: #b5c547;" id="cart-item-title"></h3>
 							<h6>Product Details</h6>
 							<p style="font-size: 10px;">
 								Engineered with pro-level features and performance, the 12.3-effective-megapixel D300
@@ -182,18 +182,32 @@
 	<div class="container">
 		<div class="row">
 			<div class="cart-1">
-				<p>Plants&Pots</p>
-				<h1>Create a tropical <br> interior <span class="font-change">in your home</span></h1>
-				<p class="textp">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-					Lorem Ipsum has been the industry's standard dummy.</p>
-				<div class="button-wrap">
-					<button class="btn-1"><a href="category.html?cat=rooftop" class="text-white">Check more Products <i
-								class="fa-solid fa-bag-shopping"></i></a></button>
+				<div id="num-slider-body1" class="d-none">
+					<p>Plants&Pots</p>
+					<h1>Create a tropical <br> Rooftop <span class="font-change">in your home</span></h1>
+					<p class="textp">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+						Lorem Ipsum has been the industry's standard dummy.</p>
+					<div class="button-wrap">
+						<button class="btn-1"><a href="category.html?cat=rooftop" class="text-white">Check more Products
+								<i class="fa-solid fa-bag-shopping"></i></a></button>
+					</div>
+				</div>
+				<div id="num-slider-body2" class="d-none">
+					<p>Plants&Pots</p>
+					<h1>Create a tropical <br> Interior <span class="font-change">in your home</span></h1>
+					<p class="textp">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+						Lorem Ipsum has been the industry's standard dummy.</p>
+					<div class="button-wrap">
+						<button class="btn-1"><a href="category.html?cat=living" class="text-white">Check more Products
+								<i class="fa-solid fa-bag-shopping"></i></a></button>
+					</div>
 				</div>
 
+
 				<div class="num-slider">
-					<div class="num1-slider num-slider-active">01</div>
-					<div class="num2-slider">02</div>
+					<div class="num1-slider num-slider-active num-slider-item" id="num-slider1" alt="num-slider1">01
+					</div>
+					<div class="num2-slider num-slider-item" id="num-slider2" alt="num-slider2">02</div>
 				</div>
 			</div>
 		</div>
@@ -794,6 +808,29 @@
 
 	<script src="js/swipper.js"></script>
 	<script src="js/cart.js"></script>
+
+	<script>
+		$(document).ready(function () {
+			$("#num-slider-body1").removeClass('d-none');
+			$(".num-slider-item").click(function (e) {
+				let x = $(this).attr('alt');
+				if (x == 'num-slider1') {
+					$("#num-slider1").addClass('num-slider-active');
+					$("#num-slider2").removeClass('num-slider-active');
+
+					$("#num-slider-body2").addClass('d-none');
+					$("#num-slider-body1").removeClass('d-none');
+				} else {
+					$("#num-slider1").removeClass('num-slider-active');
+					$("#num-slider2").addClass('num-slider-active');
+
+					$("#num-slider-body1").addClass('d-none');
+					$("#num-slider-body2").removeClass('d-none')
+				}
+			});
+
+		});
+	</script>
 
 
 </body>
