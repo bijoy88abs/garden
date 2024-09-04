@@ -28,7 +28,7 @@
     border: 1px solid #5e6434;
 }
 
-input, textarea {
+.cart-modal input, .cart-modal textarea {
     padding: 5px;
     width: 200px;
     background-color: black;
