@@ -1,0 +1,29 @@
+.cart-modal .modal-title {
+    color: #e1e4d0 !important;
+    font-weight: bold !important;
+}
+
+.cart-modal select {
+    padding: 5px;
+    width: 50px;
+    background-color: black;
+    color: #b5c547;
+    border: 1px solid #b5c547;
+    border-radius: 6px;
+}
+
+.cart-modal .buy-button {
+    padding: 5px;
+    width: 100px;
+    background-color: #b5c547;
+    border: 1px solid #b5c547;
+    border-radius: 12px;
+    color: white;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.cart-modal .buy-button:hover {
+    background-color: #5e6434;
+    border: 1px solid #5e6434;
+}

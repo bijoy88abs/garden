@@ -88,12 +88,12 @@
 
 .bestseller-item-body-pot .pot-selection select {
     width: 100%;
-    border: 1px solid #eee;
     border-radius: 12px;
     text-align: center;
     height: 25px;
-    background-color: transparent;
-    color: white;
+    background-color: black;
+    color: #b5c547;
+    border: 1px solid #b5c547;
 }
 
 .bestseller-item-body-footer {
