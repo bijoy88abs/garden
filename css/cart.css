@@ -27,3 +27,12 @@
     background-color: #5e6434;
     border: 1px solid #5e6434;
 }
+
+input, textarea {
+    padding: 5px;
+    width: 200px;
+    background-color: black;
+    color: #b5c547;
+    border: 1px solid #b5c547;
+    border-radius: 6px;
+}

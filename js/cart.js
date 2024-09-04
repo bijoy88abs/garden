@@ -54,6 +54,7 @@ $(document).ready(function () {
                 $('#cart-item-title').html(e.title);
                 $('#cart-item-price').html(e.price);
                 $('#cart-item-img').attr('src', e.img);
+                $('#cart-item-img2').attr('src', e.img);
             }
         })
 

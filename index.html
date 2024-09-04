@@ -166,13 +166,80 @@
 								<option>4</option>
 							</select>
 							&nbsp;
-							<button class="buy-button">Buy Now</button>
+							<button class="buy-button" data-bs-toggle="modal" data-bs-target="#exampleModal3">Buy
+								Now</button>
 						</div>
 						<div class="col-4">
 							<img src="" id="cart-item-img" class="img-fluid" />
 						</div>
 					</div>
 
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal Cart selection 2 -->
+	<div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content bg-dark cart-modal">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Share more details!</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+
+					<div class="row">
+						<div class="col-8 text-white">
+							<label>
+								Full name
+							</label><br>
+							<input type="text" class="mb-2"><br>
+
+							<label>
+								Email
+							</label><br>
+							<input type="email" class="mb-2"><br>
+
+
+							<label>
+								Mobile
+							</label><br>
+							<input type="tel" class="mb-2"><br>
+
+							<label>
+								Full Address
+							</label><br>
+							<textarea class="mb-2"></textarea>
+
+							<br>
+							<button class="buy-button" data-bs-dismiss="modal" data-bs-toggle="modal"
+								data-bs-target="#exampleModal4">Checkout
+							</button>
+						</div>
+						<div class="col-4">
+							<img src="" id="cart-item-img2" class="img-fluid" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- success Modal -->
+	<div class="modal fade" id="exampleModal4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content bg-dark wishlist-modal">
+				<div class="modal-header">
+					<h5 class="modal-title" style="color: #b5c547;" id="exampleModalLabel">Order placed!</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="wishlist-heart-wrapper">
+						<i class="fa-solid fa-check wishlist-heart"></i>
+						Yaaa! you successfully placed order.
+					</div>
 				</div>
 			</div>
 		</div>
