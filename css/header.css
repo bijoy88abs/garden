@@ -15,11 +15,27 @@ body {
 .wishlist-modal {
     color: #b5c547 !important;
     font-weight: bold !important;
-    font-style: italic;
+}
+
+.wishlist-heart-wrapper {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.wishlist-heart {
+    color: #b5c547;
+    font-size: 70px;
 }
 
 .wishlist-modal .btn-close {
     color: white !important;
+}
+
+.modal-header{
+    border-bottom: 1px solid #446040  !important;
 }
 
 .offcanvas-bg {

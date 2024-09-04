@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 	<link href="css/cover.css" rel="stylesheet">
 	<link href="css/category.css" rel="stylesheet">
+	<link href="css/cart.css" rel="stylesheet">
 
 </head>
 
@@ -100,20 +101,81 @@
 
 			<p>Monday-Friday 8:00am-9:00am</p>
 			<ul class="list-group">
-				<li class="list-group-item"><i class="fa-solid fa-leaf"></i> <a
-						href="category.html?cat=rooftop" class="text-white">Rooftop</a></li>
-				<li class="list-group-item"><i class="fa-solid fa-tree"></i> <a
-						href="category.html?cat=rooftop" class="text-white">Garden</a></li>
-				<li class="list-group-item"><i class="fa-brands fa-pagelines"></i> <a
-						href="category.html?cat=living" class="text-white">Living room</a></li>
-				<li class="list-group-item"><i class="fa-brands fa-pagelines"></i> <a
-						href="category.html?cat=balcony" class="text-white">Balcony</a></li>
+				<li class="list-group-item"><i class="fa-solid fa-leaf"></i> <a href="category.html?cat=rooftop"
+						class="text-white">Rooftop</a></li>
+				<li class="list-group-item"><i class="fa-solid fa-tree"></i> <a href="category.html?cat=rooftop"
+						class="text-white">Garden</a></li>
+				<li class="list-group-item"><i class="fa-brands fa-pagelines"></i> <a href="category.html?cat=living"
+						class="text-white">Living room</a></li>
+				<li class="list-group-item"><i class="fa-brands fa-pagelines"></i> <a href="category.html?cat=balcony"
+						class="text-white">Balcony</a></li>
 				<li class="list-group-item"><i class="fa-solid fa-magnifying-glass"></i> Serarch</li>
 				<li class="list-group-item"><i class="fa-regular fa-user"></i> Register</li>
 			</ul>
 		</div>
 	</div>
 	<!---sub headermenu end--->
+
+	<!-- Wishlist Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content bg-dark wishlist-modal">
+				<div class="modal-header">
+					<h5 class="modal-title" style="color: #b5c547;" id="exampleModalLabel">Nice Selection!</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="wishlist-heart-wrapper">
+						<i class="fa-solid fa-check wishlist-heart"></i>
+						Item Added To Wishlist.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Modal Cart selection -->
+	<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content bg-dark cart-modal">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Nice Selection!</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+
+					<div class="row">
+						<div class="col-8 text-white">
+							<h3 style="color: #b5c547;" id="cart-item-title"></h3>
+							<h6>Product Details</h6>
+							<p style="font-size: 10px;">
+								Engineered with pro-level features and performance, the 12.3-effective-megapixel D300
+								combines brand new technologies with advanced features inherited from Nikon's newly
+								announced D3 professional digital SLR camera to offer serious photographers remarkable
+								performance combined with agility.
+							</p>
+							<h5>Price: <span style="color: #b5c547;" id="cart-item-price"></span></h5>
+							<br>
+							<label>Qty: &nbsp;</label>
+							<select>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+								<option>4</option>
+							</select>
+							&nbsp;
+							<button class="buy-button">Buy Now</button>
+						</div>
+						<div class="col-4">
+							<img src="" id="cart-item-img" class="img-fluid" />
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
 
 
 	<div class="container">
@@ -132,12 +194,14 @@
 							<div class="bestseller-item-body-top">
 								<div class="wishlist">
 									<label>Add to wishlist</label>
-									<i class="fa-regular fa-heart"></i>
+									<a data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<i class="fa-regular fa-heart"></i>
+									</a>
 								</div>
 							</div>
 							<div class="bestseller-item-body-price">
 								<div class="desc">Acoma Crape Myrtle</div>
-								<div class="price">$1.00</div>
+								<div class="price">$200.00</div>
 							</div>
 							<div class="bestseller-item-body-pot">
 								<div class="pot-title">Pot*</div>
@@ -150,7 +214,8 @@
 								</div>
 							</div>
 							<div class="bestseller-item-body-footer">
-								<button class="add-to-cart-btn">Add To Cart</button>
+								<button class="add-to-cart-btn" alt="item-1" data-bs-toggle="modal"
+									data-bs-target="#exampleModal2">Add To Cart</button>
 							</div>
 						</div>
 					</div>
@@ -165,12 +230,14 @@
 							<div class="bestseller-item-body-top">
 								<div class="wishlist">
 									<label>Add to wishlist</label>
-									<i class="fa-regular fa-heart"></i>
+									<a data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<i class="fa-regular fa-heart"></i>
+									</a>
 								</div>
 							</div>
 							<div class="bestseller-item-body-price">
 								<div class="desc">Acoma Crape Myrtle</div>
-								<div class="price">$1.00</div>
+								<div class="price">$100.00</div>
 							</div>
 							<div class="bestseller-item-body-pot">
 								<div class="pot-title">Pot*</div>
@@ -183,7 +250,8 @@
 								</div>
 							</div>
 							<div class="bestseller-item-body-footer">
-								<button class="add-to-cart-btn">Add To Cart</button>
+								<button class="add-to-cart-btn" alt="item-2" data-bs-toggle="modal"
+									data-bs-target="#exampleModal2">Add To Cart</button>
 							</div>
 						</div>
 					</div>
@@ -198,12 +266,14 @@
 							<div class="bestseller-item-body-top">
 								<div class="wishlist">
 									<label>Add to wishlist</label>
-									<i class="fa-regular fa-heart"></i>
+									<a data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<i class="fa-regular fa-heart"></i>
+									</a>
 								</div>
 							</div>
 							<div class="bestseller-item-body-price">
 								<div class="desc">Acoma Crape Myrtle</div>
-								<div class="price">$1.00</div>
+								<div class="price">$200.00</div>
 							</div>
 							<div class="bestseller-item-body-pot">
 								<div class="pot-title">Pot*</div>
@@ -216,7 +286,8 @@
 								</div>
 							</div>
 							<div class="bestseller-item-body-footer">
-								<button class="add-to-cart-btn">Add To Cart</button>
+								<button class="add-to-cart-btn" alt="item-3" data-bs-toggle="modal"
+									data-bs-target="#exampleModal2">Add To Cart</button>
 							</div>
 						</div>
 					</div>
@@ -231,12 +302,14 @@
 							<div class="bestseller-item-body-top">
 								<div class="wishlist">
 									<label>Add to wishlist</label>
-									<i class="fa-regular fa-heart"></i>
+									<a data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<i class="fa-regular fa-heart"></i>
+									</a>
 								</div>
 							</div>
 							<div class="bestseller-item-body-price">
 								<div class="desc">Acoma Crape Myrtle</div>
-								<div class="price">$1.00</div>
+								<div class="price">$120.00</div>
 							</div>
 							<div class="bestseller-item-body-pot">
 								<div class="pot-title">Pot*</div>
@@ -249,7 +322,8 @@
 								</div>
 							</div>
 							<div class="bestseller-item-body-footer">
-								<button class="add-to-cart-btn">Add To Cart</button>
+								<button class="add-to-cart-btn" alt="item-4" data-bs-toggle="modal"
+									data-bs-target="#exampleModal2">Add To Cart</button>
 							</div>
 						</div>
 					</div>
@@ -264,12 +338,14 @@
 							<div class="bestseller-item-body-top">
 								<div class="wishlist">
 									<label>Add to wishlist</label>
-									<i class="fa-regular fa-heart"></i>
+									<a data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<i class="fa-regular fa-heart"></i>
+									</a>
 								</div>
 							</div>
 							<div class="bestseller-item-body-price">
 								<div class="desc">Acoma Crape Myrtle</div>
-								<div class="price">$1.00</div>
+								<div class="price">$170.00</div>
 							</div>
 							<div class="bestseller-item-body-pot">
 								<div class="pot-title">Pot*</div>
@@ -282,7 +358,8 @@
 								</div>
 							</div>
 							<div class="bestseller-item-body-footer">
-								<button class="add-to-cart-btn">Add To Cart</button>
+								<button class="add-to-cart-btn" alt="item-5" data-bs-toggle="modal"
+									data-bs-target="#exampleModal2">Add To Cart</button>
 							</div>
 						</div>
 					</div>
@@ -297,12 +374,14 @@
 							<div class="bestseller-item-body-top">
 								<div class="wishlist">
 									<label>Add to wishlist</label>
-									<i class="fa-regular fa-heart"></i>
+									<a data-bs-toggle="modal" data-bs-target="#exampleModal">
+										<i class="fa-regular fa-heart"></i>
+									</a>
 								</div>
 							</div>
 							<div class="bestseller-item-body-price">
 								<div class="desc">Acoma Crape Myrtle</div>
-								<div class="price">$1.00</div>
+								<div class="price">$70.00</div>
 							</div>
 							<div class="bestseller-item-body-pot">
 								<div class="pot-title">Pot*</div>
@@ -315,7 +394,8 @@
 								</div>
 							</div>
 							<div class="bestseller-item-body-footer">
-								<button class="add-to-cart-btn">Add To Cart</button>
+								<button class="add-to-cart-btn" alt="item-6" data-bs-toggle="modal"
+									data-bs-target="#exampleModal2">Add To Cart</button>
 							</div>
 						</div>
 					</div>
@@ -336,6 +416,7 @@
 		crossorigin="anonymous"></script>
 
 	<script src="js/swipper.js"></script>
+	<script src="js/cart.js"></script>
 
 	<script>
 

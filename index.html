@@ -116,16 +116,19 @@
 	<!---sub headermenu end--->
 
 
-	<!-- Modal -->
+	<!-- Wishlist Modal -->
 	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content bg-dark wishlist-modal">
 				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Nice Selection!</h5>
+					<h5 class="modal-title" style="color: #b5c547;" id="exampleModalLabel">Nice Selection!</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					Item Added To Wishlist.
+					<div class="wishlist-heart-wrapper">
+						<i class="fa-solid fa-check wishlist-heart"></i>
+						Item Added To Wishlist.
+					</div>
 				</div>
 			</div>
 		</div>
@@ -145,8 +148,7 @@
 
 					<div class="row">
 						<div class="col-8 text-white">
-							<h3 style="color: #b5c547;" id="cart-item-title"></h3>
-							<hr>
+							<h3 style="color: #b5c547;" id="cart-item-title"></h3>						
 							<h6>Product Details</h6>
 							<p style="font-size: 10px;">
 								Engineered with pro-level features and performance, the 12.3-effective-megapixel D300
@@ -163,6 +165,7 @@
 								<option>3</option>
 								<option>4</option>
 							</select>
+							&nbsp;
 							<button class="buy-button">Buy Now</button>
 						</div>
 						<div class="col-4">
@@ -293,7 +296,7 @@
 										</div>
 										<div class="bestseller-item-body-price">
 											<div class="desc">Acoma Crape Myrtle</div>
-											<div class="price">$1.00</div>
+											<div class="price">$200.00</div>
 										</div>
 										<div class="bestseller-item-body-pot">
 											<div class="pot-title">Pot*</div>
