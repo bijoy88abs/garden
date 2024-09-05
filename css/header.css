@@ -55,6 +55,11 @@ body {
     color: white;
 }
 
+.header-menu1 a {
+    color: white;
+    text-decoration: none;
+}
+
 .header-menu1 ul {
     display: flex;
     list-style: none;
