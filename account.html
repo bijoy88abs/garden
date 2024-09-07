@@ -25,9 +25,9 @@
 				<div class="header-menu1">
 					<ul>
 						<li><a href="about.html">About</a></li>
-						<li>Site Map</li>
+						<li>FAQ</li>
 						<li>Brand</li>
-						<li>Contact</li>
+						<li><a href="contact.html">Contacts</a></li>
 					</ul>
 				</div>
 			</div>
@@ -149,7 +149,7 @@
 
 				<div class="input-wrap">
 					<button class="forgot-button">Send link</button>
-				</div>				
+				</div>
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-12 col-12 bg-reg">
 				<h1 class="display-7 text-white mt-2">Register Now</h1>
@@ -285,49 +285,10 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
 		integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
 		crossorigin="anonymous"></script>
-	<script src="js/cart.js"></script>
 
 	<script>
-
 		$(document).ready(function () {
-			let urlString = location.search.split("=");
-			$("#cat1").hide();
-			$("#cat2").hide();
-			$("#cat3").hide();
-			$("#cat4").hide();
-			$("#cat5").hide();
-			$("#cat6").hide();
-
-			if (urlString && urlString[1]) {
-				if (urlString[1] == 'rooftop') {
-					$("#categoryType").html("Category / Rooftop plants");
-					$("#cat1").show();
-					$("#cat2").show();
-					$("#cat3").show();
-					$("#cat5").show();
-					$("#cat6").show();
-				}
-				if (urlString[1] == 'garden') {
-					$("#categoryType").html("Category / Garden plants");
-					$("#cat3").show();
-					$("#cat4").show();
-					$("#cat5").show();
-					$("#cat6").show();
-				}
-				if (urlString[1] == 'living') {
-					$("#categoryType").html("Category / Living room plants");
-					$("#cat4").show();
-					$("#cat5").show();
-				}
-				if (urlString[1] == 'balcony') {
-					$("#categoryType").html("Category / Balcony plants");
-					$("#cat1").show();
-					$("#cat4").show();
-					$("#cat5").show();
-				}
-			}
-		})
-
+		});
 	</script>
 </body>
 

@@ -1,0 +1,71 @@
+.contact-section .contact-button {
+    padding: 7px;
+    width: 160px;
+    background-color: #b5c547;
+    border: 1px solid #b5c547;
+    border-radius: 8px;
+    color: white;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.contact-section .contact-button:hover {
+    background-color: #5e6434;
+    border: 1px solid #5e6434;
+}
+
+
+.contact-section .forgot-button:hover {
+    background-color: #b5c547;
+    border: 1px solid #b5c547;
+}
+
+.text-olive {
+    color: #b5c547;
+    font-weight: bold;
+}
+
+.contact-section .input-wrap {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.contact-section .input-wrap label {
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+
+}
+
+.contact-section input,
+.contact-section textarea,
+.contact-section select {
+    padding: 5px;
+    width: 300px;
+    background-color: black;
+    color: #b5c547;
+    border: 1px solid #b5c547;
+    border-radius: 6px;
+}
+
+.contact-block-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+
+
+.contact-block-item {
+    display: flex;
+    justify-content: start;
+    border: 1px solid white;
+    flex-direction: column;
+    padding: 20px;
+    overflow-wrap: break-word;
+    width: 350px;
+}
+
+.text-large{
+    font-size: 20px;
+    color: white;
+}
