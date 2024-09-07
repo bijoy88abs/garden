@@ -55,7 +55,7 @@ body {
     color: white;
 }
 
-.header-menu1 a {
+.header-menu1 a, .header-menu3 a {
     color: white;
     text-decoration: none;
 }

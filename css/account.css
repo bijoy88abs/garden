@@ -1,0 +1,73 @@
+.account-section .reg-button {
+    padding: 7px;
+    width: 160px;
+    background-color: #b5c547;
+    border: 1px solid #b5c547;
+    border-radius: 8px;
+    color: white;
+    margin-top: 10px;
+    font-weight: bold;
+}
+.account-section .reg-button:hover {
+    background-color: #5e6434;
+    border: 1px solid #5e6434;
+}
+
+.account-section .forgot-button {
+    padding: 7px;
+    width: 160px;
+    background-color: #7b7e6b;
+    border: 1px solid #7b7e6b;
+    border-radius: 8px;
+    color: white;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.account-section .forgot-button:hover {
+    background-color: #b5c547;
+    border: 1px solid #b5c547;
+}
+
+.bg-reg{
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+}
+
+.bg-login{
+    background-color: #40422e;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 10px;
+}
+
+.text-olive {
+    color:#b5c547;
+    font-weight: bold;
+}
+
+
+
+.account-section .input-wrap {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.account-section .input-wrap label{
+    display: block;
+    margin-bottom: 5px;
+    color: white;
+
+}
+
+.account-section input,
+.account-section textarea,
+.account-section select {
+    padding: 5px;
+    width: 300px;
+    background-color: black;
+    color: #b5c547;
+    border: 1px solid #b5c547;
+    border-radius: 6px;
+}
