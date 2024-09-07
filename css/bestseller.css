@@ -7,7 +7,7 @@
 
 .bestseller-item {
     width: 300px;
-    height: 450px;
+    height: 465px;
     position: relative;
     left: 0;
     right: 0;
@@ -27,12 +27,12 @@
     border: 1px solid gray;
     border-radius: 6px;
     width: 300px;
-    height: 190px;
+    height: 205px;
     background-color: black;
 }
 
 .bestseller-item-body-top {
-    height: 30px;
+    height: 45px;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -104,7 +104,7 @@
     background-color: black;
 }
 
-.bestseller-item-body-footer .add-to-cart-btn {
+.bestseller-item-body-footer .add-to-order-btn {
     padding: 5px;
     border: 1px solid #B5C547;
     background-color: #B5C547;
@@ -114,12 +114,32 @@
     height: 40px;
 }
 
-.bestseller-item-body-footer .add-to-cart-btn:hover {
+.bestseller-item-body-footer .add-to-order-btn:hover {
     border: 1px solid #6b8a61;
     background-color: #6b8a61;
     color: white;
 }
 
+.item-cart-icons {
+    color: white;
+}
+
+.item-cart-icons-del {
+    color: white;
+}
+
+.cart-active {
+    color: #B5C547;
+}
+
+.fa-trash-can {
+    color: tomato;
+}
+
+.wishlist {
+    text-align: right;
+    cursor: pointer;
+}
 
 .swiper {
     width: 100%;
@@ -130,7 +150,7 @@
     text-align: center;
     display: flex;
     justify-content: center;
-    height: 450px !important;
+    height: 465px !important;
     align-items: center;
 }
 
