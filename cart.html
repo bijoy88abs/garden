@@ -107,8 +107,11 @@
 						class="text-white">Living room</a></li>
 				<li class="list-group-item"><i class="fa-brands fa-pagelines"></i> <a href="category.html?cat=balcony"
 						class="text-white">Balcony</a></li>
-				<li class="list-group-item"><i class="fa-solid fa-magnifying-glass"></i> Serarch</li>
-				<li class="list-group-item"><i class="fa-regular fa-user"></i> <a href="account.html">Register</a></li>
+				<li class="list-group-item"><i class="fa-solid fa-magnifying-glass"></i> <a class="text-white"
+						href="account.html">FAQ</a>
+				</li>
+				<li class="list-group-item"><i class="fa-regular fa-user"></i> <a class="text-white"
+						href="account.html">Register</a></li>
 			</ul>
 		</div>
 	</div>
@@ -533,7 +536,6 @@
 
 
 	<script>
-
 		$(document).ready(function () {
 			verifyCart();
 			$("#buy-from-cart").click(function (e) {
@@ -542,6 +544,23 @@
 
 
 			$(".final-checkout-button").click(function (e) {
+				let name = $("#name").val();
+				let email = $("#email").val();
+				let mobile = $("#mobile").val();
+				let address = $("#address").val();
+
+				if (name == '') {
+					return;
+				}
+				if (email == '') {
+					return;
+				}
+				if (mobile == '') {
+					return;
+				}
+				if (address == '') {
+					return;
+				}
 				sessionStorage.removeItem('cartObject')
 				verifyCart();
 			});
