@@ -28,11 +28,22 @@
     border: 1px solid #5e6434;
 }
 
-.cart-modal input, .cart-modal textarea {
+.cart-modal input,
+.cart-modal textarea {
     padding: 5px;
     width: 200px;
     background-color: black;
     color: #b5c547;
     border: 1px solid #b5c547;
     border-radius: 6px;
+}
+
+.item-cart-icons-del {
+    color: white;
+}
+
+.trash-cart-item {
+    margin-left: 10px;
+    font-size: 25px;
+    cursor: pointer;
 }

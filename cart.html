@@ -250,12 +250,15 @@
 					<h5>Price: <span style="color: #b5c547;">$200.00</span></h5>
 					<br>
 					<label>Qty: &nbsp;</label>
-					<select>
+					<select id="option-1" class="option-quantity">
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
 						<option>4</option>
 					</select>
+					<a class="item-cart-icons-del trash-cart-item item-1-cart-icon-del" alt="item-1-cart-icon-del">
+						<i class="fa-regular fa-trash-can"></i>
+					</a>
 				</div>
 				<div class="col-5">
 					<img src="images/bestseller/img1.png" style="max-height: 200px;" class="img-fluid" />
@@ -279,12 +282,15 @@
 					<h5>Price: <span style="color: #b5c547;">$100.00</span></h5>
 					<br>
 					<label>Qty: &nbsp;</label>
-					<select>
+					<select id="option-2" class="option-quantity">
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
 						<option>4</option>
 					</select>
+					<a class="item-cart-icons-del trash-cart-item item-2-cart-icon-del" alt="item-2-cart-icon-del">
+						<i class="fa-regular fa-trash-can"></i>
+					</a>
 				</div>
 				<div class="col-5">
 					<img src="images/bestseller/img2.png" style="max-height: 200px;" class="img-fluid" />
@@ -307,12 +313,15 @@
 					<h5>Price: <span style="color: #b5c547;">$200.00</span></h5>
 					<br>
 					<label>Qty: &nbsp;</label>
-					<select>
+					<select id="option-3" class="option-quantity">
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
 						<option>4</option>
 					</select>
+					<a class="item-cart-icons-del trash-cart-item item-3-cart-icon-del" alt="item-3-cart-icon-del">
+						<i class="fa-regular fa-trash-can"></i>
+					</a>
 				</div>
 				<div class="col-5">
 					<img src="images/bestseller/img3.png" style="max-height: 200px;" class="img-fluid" />
@@ -335,12 +344,15 @@
 					<h5>Price: <span style="color: #b5c547;">$120.00</span></h5>
 					<br>
 					<label>Qty: &nbsp;</label>
-					<select>
+					<select id="option-4" class="option-quantity">
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
 						<option>4</option>
 					</select>
+					<a class="item-cart-icons-del trash-cart-item item-4-cart-icon-del" alt="item-4-cart-icon-del">
+						<i class="fa-regular fa-trash-can"></i>
+					</a>
 				</div>
 				<div class="col-5">
 					<img src="images/bestseller/img4.png" style="max-height: 200px;" class="img-fluid" />
@@ -363,12 +375,15 @@
 					<h5>Price: <span style="color: #b5c547;">$170.00</span></h5>
 					<br>
 					<label>Qty: &nbsp;</label>
-					<select>
+					<select id="option-5" class="option-quantity">
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
 						<option>4</option>
 					</select>
+					<a class="item-cart-icons-del trash-cart-item item-5-cart-icon-del" alt="item-5-cart-icon-del">
+						<i class="fa-regular fa-trash-can"></i>
+					</a>
 				</div>
 				<div class="col-5">
 					<img src="images/bestseller/img5.png" style="max-height: 200px;" class="img-fluid" />
@@ -391,12 +406,15 @@
 					<h5>Price: <span style="color: #b5c547;">$70.00</span></h5>
 					<br>
 					<label>Qty: &nbsp;</label>
-					<select>
+					<select id="option-6" class="option-quantity">
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
 						<option>4</option>
 					</select>
+					<a class="item-cart-icons-del trash-cart-item item-6-cart-icon-del" alt="item-6-cart-icon-del">
+						<i class="fa-regular fa-trash-can"></i>
+					</a>
 				</div>
 				<div class="col-5">
 					<img src="images/bestseller/img6.png" style="max-height: 200px;" class="img-fluid" />
@@ -419,12 +437,15 @@
 					<h5>Price: <span style="color: #b5c547;">$130.00</span></h5>
 					<br>
 					<label>Qty: &nbsp;</label>
-					<select>
+					<select id="option-7" class="option-quantity">
 						<option>1</option>
 						<option>2</option>
 						<option>3</option>
 						<option>4</option>
 					</select>
+					<a class="item-cart-icons-del trash-cart-item item-7-cart-icon-del" alt="item-7-cart-icon-del">
+						<i class="fa-regular fa-trash-can"></i>
+					</a>
 				</div>
 				<div class="col-5">
 					<img src="images/bestseller/img7.png" style="max-height: 200px;" class="img-fluid" />
@@ -542,6 +563,14 @@
 				$('#exampleModal3').modal('show');
 			});
 
+			$(".option-quantity").click(function (e) {
+				calculateTotal();
+			});
+
+			$(".trash-cart-item").click(function (e) {
+				verifyCart();
+			});
+
 
 			$(".final-checkout-button").click(function (e) {
 				let name = $("#name").val();
@@ -623,9 +652,61 @@
 						$("#cart-details-count").hide();
 						$("#cart-btn").show();
 					}
+					calculateTotal();
 				}, 100);
 			}
 
+
+			function calculateTotal() {
+				let cartPrice = 0.00;
+				setTimeout(() => {
+					retrievedObject = JSON.parse(sessionStorage.getItem('cartObject'));
+
+					if (retrievedObject) {
+						retrievedObject.forEach((e) => {
+							if (e.addedToCart) {
+								if (e.itemId == 'item-1') {
+									let optionValue = $("#option-1").val();
+									let x = parseFloat(e.price.substring(1));
+									console.log('===oo', x * parseInt(optionValue))
+									cartPrice = parseFloat(cartPrice) + (x * parseInt(optionValue));
+								}
+								if (e.itemId == 'item-2') {
+									let optionValue = $("#option-2").val();
+									let x = parseFloat(e.price.substring(1));
+									cartPrice = parseFloat(cartPrice) + (x * parseInt(optionValue));
+								}
+								if (e.itemId == 'item-3') {
+									let optionValue = $("#option-3").val();
+									let x = parseFloat(e.price.substring(1));
+									cartPrice = parseFloat(cartPrice) + (x * parseInt(optionValue));
+								}
+								if (e.itemId == 'item-4') {
+									let optionValue = $("#option-4").val();
+									let x = parseFloat(e.price.substring(1));
+									cartPrice = parseFloat(cartPrice) + (x * parseInt(optionValue));
+								}
+								if (e.itemId == 'item-5') {
+									let optionValue = $("#option-5").val();
+									let x = parseFloat(e.price.substring(1));
+									cartPrice = parseFloat(cartPrice) + (x * parseInt(optionValue));
+								}
+								if (e.itemId == 'item-6') {
+									let optionValue = $("#option-6").val();
+									let x = parseFloat(e.price.substring(1));
+									cartPrice = parseFloat(cartPrice) + (x * parseInt(optionValue));
+								}
+								if (e.itemId == 'item-7') {
+									let optionValue = $("#option-7").val();
+									let x = parseFloat(e.price.substring(1));
+									cartPrice = parseFloat(cartPrice) + (x * parseInt(optionValue));
+								}
+							}
+						});
+						$(".cart-value-page").html(`$${cartPrice}.00`);
+					}
+				}, 100);
+			}
 		})
 
 	</script>

@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    let cartBuyValue = 0;
     const cartList = [
         {
             itemId: 'item-1',
@@ -121,16 +122,30 @@ $(document).ready(function () {
     $(".add-to-order-btn").click(function (e) {
         $('#cart-item-title').html('');
         $('#cart-item-price').html('');
+        $("#option-buy-quantity").val(1);
         let x = $(this).attr('alt');
+        cartBuyValue = 0;
         retrievedObject.forEach((e) => {
             if (e.itemId == x) {
+                let y = $("#option-buy-quantity").val();
+                const z = parseFloat(e.price.substring(1)) * parseInt(y);
+                cartBuyValue = parseFloat(e.price.substring(1));
                 $('#cart-item-title').html(e.title);
-                $('#cart-item-price').html(e.price);
+                $('#cart-item-price').html(`$${z}.00`);
                 $('#cart-item-img').attr('src', e.img);
                 $('#cart-item-img2').attr('src', e.img);
             }
         });
     });
+
+    $("#option-buy-quantity").change(function (e) {
+        let y = $("#option-buy-quantity").val();
+        const z = parseFloat(cartBuyValue) * parseInt(y);
+        $('#cart-item-price').html(`$${z}.00`);
+
+    });
+
+
 
 
     $("#cart-count-sec").click(function (e) {
@@ -197,7 +212,6 @@ $(document).ready(function () {
             });
             $(".cart-count").html(cartCount);
             $(".cart-value").html(`$${cartPrice}.00`);
-            $(".cart-value-page").html(`$${cartPrice}.00`);
         }, 100);
     }
 
