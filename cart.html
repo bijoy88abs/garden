@@ -172,26 +172,26 @@
 							<label>
 								Full name
 							</label><br>
-							<input type="text" class="mb-2"><br>
+							<input type="text" class="mb-2" id="name"><br>
 
 							<label>
 								Email
 							</label><br>
-							<input type="email" class="mb-2"><br>
+							<input type="email" class="mb-2" id="email"><br>
 
 
 							<label>
 								Mobile
 							</label><br>
-							<input type="tel" class="mb-2"><br>
+							<input type="tel" class="mb-2" id="mobile"><br>
 
 							<label>
 								Full Address
 							</label><br>
-							<textarea class="mb-2"></textarea>
+							<textarea class="mb-2" id="address"></textarea>
 
 							<br>
-							<button class="buy-button" id="modal-checkout">Checkout </button>
+							<button class="buy-button final-checkout-button" id="modal-checkout">Checkout </button>
 						</div>
 						<div class="col-4">
 							<img src="" id="cart-item-img2" class="img-fluid" />
@@ -541,7 +541,7 @@
 			});
 
 
-			$("#final-checkout-button").click(function (e) {
+			$(".final-checkout-button").click(function (e) {
 				sessionStorage.removeItem('cartObject')
 				verifyCart();
 			});
