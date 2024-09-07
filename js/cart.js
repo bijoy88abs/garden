@@ -51,11 +51,13 @@ $(document).ready(function () {
         },
     ];
 
-    let retrievedObject = JSON.parse(localStorage.getItem('cartObject'));
-    if (!retrievedObject) {
-        localStorage.setItem('cartObject', JSON.stringify(cartList));
-    }
-    checkCartItems();
+    setTimeout(() => {
+        let retrievedObject = JSON.parse(localStorage.getItem('cartObject'));
+        if (!retrievedObject) {
+            localStorage.setItem('cartObject', JSON.stringify(cartList));
+        }
+        checkCartItems();
+    }, 100);
 
     $(".item-cart-icons").click(function (e) {
         let selectedCartClass = $(this).attr('alt');
@@ -135,7 +137,7 @@ $(document).ready(function () {
             retrievedObject = JSON.parse(localStorage.getItem('cartObject'));
             let cartCount = 0;
             let cartPrice = 0.00;
-            
+
             retrievedObject.forEach((e) => {
                 const createIdLabel = `${e.itemId}-cart-label`;
                 const createIdCart = `${e.itemId}-cart-icon`;
