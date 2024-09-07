@@ -52,9 +52,9 @@ $(document).ready(function () {
     ];
 
     setTimeout(() => {
-        let retrievedObject = JSON.parse(localStorage.getItem('cartObject'));
+        let retrievedObject = JSON.parse(sessionStorage.getItem('cartObject'));
         if (!retrievedObject) {
-            localStorage.setItem('cartObject', JSON.stringify(cartList));
+            sessionStorage.setItem('cartObject', JSON.stringify(cartList));
         }
         checkCartItems();
     }, 100);
@@ -82,8 +82,8 @@ $(document).ready(function () {
                     }
                 });
                 $('#addedToCartModal').modal('show');
-                localStorage.removeItem('cartObject');
-                localStorage.setItem('cartObject', JSON.stringify(newList));
+                sessionStorage.removeItem('cartObject');
+                sessionStorage.setItem('cartObject', JSON.stringify(newList));
                 checkCartItems();
             }
         }
@@ -111,8 +111,8 @@ $(document).ready(function () {
                         newList.push(e);
                     }
                 });
-                localStorage.removeItem('cartObject');
-                localStorage.setItem('cartObject', JSON.stringify(newList));
+                sessionStorage.removeItem('cartObject');
+                sessionStorage.setItem('cartObject', JSON.stringify(newList));
                 checkCartItems();
             }
         }
@@ -132,9 +132,14 @@ $(document).ready(function () {
         });
     });
 
+
+    $("#cart-count-sec").click(function (e) {
+        window.location.href = 'cart.html';
+    });
+
     function checkCartItems() {
         setTimeout(() => {
-            retrievedObject = JSON.parse(localStorage.getItem('cartObject'));
+            retrievedObject = JSON.parse(sessionStorage.getItem('cartObject'));
             let cartCount = 0;
             let cartPrice = 0.00;
 
@@ -158,6 +163,7 @@ $(document).ready(function () {
             });
             $(".cart-count").html(cartCount);
             $(".cart-value").html(`$${cartPrice}.00`);
+            $(".cart-value-page").html(`$${cartPrice}.00`);
         }, 100);
     }
 

@@ -114,24 +114,6 @@
 	</div>
 	<!---sub headermenu end--->
 
-	<!-- Wishlist Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content bg-dark wishlist-modal">
-				<div class="modal-header">
-					<h5 class="modal-title" style="color: #b5c547;" id="exampleModalLabel">Nice Selection!</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-					<div class="wishlist-heart-wrapper">
-						<i class="fa-solid fa-check wishlist-heart"></i>
-						Item Added To Wishlist.
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
 	<!-- Modal Cart selection -->
 	<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
@@ -210,7 +192,7 @@
 
 							<br>
 							<button class="buy-button" data-bs-dismiss="modal" data-bs-toggle="modal"
-								data-bs-target="#exampleModal4">Checkout
+								data-bs-target="#exampleModal4" id="final-checkout-button">Checkout
 							</button>
 						</div>
 						<div class="col-4">
@@ -249,9 +231,9 @@
 			<h1 class="display-7 text-white mt-2">Your Cart</h1>
 			<hr style="color:white">
 			<h2 class="display-7 text-white mt-2" id="cart-details-count">
-				<br>
+				<i class="fa-solid fa-temperature-empty" style="font-size: 60px;"></i>
+				<br><br>
 				Ohh! Your Cart Is Empty
-				<i class="fa-regular fa-face-sad-cry"></i>
 			</h2>
 
 			<div class="row cart-modal" id="cart-1">
@@ -451,6 +433,12 @@
 					<hr>
 				</div>
 			</div>
+
+			<div class="row cart-modal" id="cart-btn">
+				<h2 class="text-white">Total Price: <label class="cart-value-page" style="color: #b5c547;"></label></h2>
+				&nbsp; <button class="buy-button" style="margin-left: 12px;" id="buy-from-cart">Buy
+					Now</button>
+			</div>
 		</div>
 	</div>
 
@@ -535,63 +523,91 @@
 	</div>
 
 
-	<!-- Swiper JS -->
 	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
 		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+		integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+		integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+		crossorigin="anonymous"></script>
+
 
 	<script>
 
 		$(document).ready(function () {
-			$("#cart-1").hide();
-			$("#cart-2").hide();
-			$("#cart-3").hide();
-			$("#cart-4").hide();
-			$("#cart-5").hide();
-			$("#cart-6").hide();
-			$("#cart-7").hide();
+			verifyCart();
+			$("#buy-from-cart").click(function (e) {
+				$('#exampleModal3').modal('show');
+			});
 
-			setTimeout(() => {
-				retrievedObject = JSON.parse(localStorage.getItem('cartObject'));
-				let count = 0;
 
-				retrievedObject.forEach((e) => {
-					if (e.addedToCart) {
-						if (e.itemId == 'item-1') {
-							$("#cart-1").show();
-							count++;
-						}
-						if (e.itemId == 'item-2') {
-							$("#cart-2").show();
-							count++;
-						}
-						if (e.itemId == 'item-3') {
-							$("#cart-3").show();
-							count++;
-						}
-						if (e.itemId == 'item-4') {
-							$("#cart-4").show();
-							count++;
-						}
-						if (e.itemId == 'item-5') {
-							$("#cart-5").show();
-							count++;
-						}
-						if (e.itemId == 'item-6') {
-							$("#cart-6").show();
-							count++;
-						}
-						if (e.itemId == 'item-7') {
-							$("#cart-7").show();
-							count++;
-						}
+			$("#final-checkout-button").click(function (e) {
+				sessionStorage.removeItem('cartObject')
+				verifyCart();
+			});
+
+			function verifyCart() {
+				$("#cart-1").hide();
+				$("#cart-2").hide();
+				$("#cart-3").hide();
+				$("#cart-4").hide();
+				$("#cart-5").hide();
+				$("#cart-6").hide();
+				$("#cart-7").hide();
+				$("#cart-btn").hide();
+
+				setTimeout(() => {
+					retrievedObject = JSON.parse(sessionStorage.getItem('cartObject'));
+					let count = 0;
+
+					if (retrievedObject) {
+						retrievedObject.forEach((e) => {
+							if (e.addedToCart) {
+								if (e.itemId == 'item-1') {
+									$("#cart-1").show();
+									count++;
+								}
+								if (e.itemId == 'item-2') {
+									$("#cart-2").show();
+									count++;
+								}
+								if (e.itemId == 'item-3') {
+									$("#cart-3").show();
+									count++;
+								}
+								if (e.itemId == 'item-4') {
+									$("#cart-4").show();
+									count++;
+								}
+								if (e.itemId == 'item-5') {
+									$("#cart-5").show();
+									count++;
+								}
+								if (e.itemId == 'item-6') {
+									$("#cart-6").show();
+									count++;
+								}
+								if (e.itemId == 'item-7') {
+									$("#cart-7").show();
+									count++;
+								}
+							}
+						});
 					}
-				});
-				if (count == 0) {
-					$("#cart-details-count").show();
-				} else {
-					$("#cart-details-count").hide();
-				}
-			}, 1000);
+					if (count == 0) {
+						$("#cart-details-count").show();
+						$("#cart-btn").hide();
+
+						$(".cart-count").html('0');
+						$(".cart-value").html(`$0.00`);
+					} else {
+						$("#cart-details-count").hide();
+						$("#cart-btn").show();
+					}
+				}, 100);
+			}
 
 		})
 
