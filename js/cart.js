@@ -137,6 +137,40 @@ $(document).ready(function () {
         window.location.href = 'cart.html';
     });
 
+    $("#modal-checkout").click(function (e) {
+        let errorCount = 0;
+        let name = $("#name").val();
+        let email = $("#email").val();
+        let mobile = $("#mobile").val();
+        let address = $("#address").val();
+
+        if (name == '') {
+            alert('Please Enter a valid name');
+            errorCount++;
+            return;
+        }
+        if (email == '') {
+            alert('Please Enter a valid email');
+            errorCount++;
+            return;
+        }
+        if (mobile == '') {
+            alert('Please Enter a valid mobile');
+            errorCount++;
+            return;
+        }
+        if (address == '') {
+            alert('Please Enter a valid address');
+            errorCount++;
+            return;
+        }
+        if (errorCount == 0) {
+            $('#exampleModal3').modal('hide');
+            $('#exampleModal4').modal('show');
+        }
+    });
+
+
     function checkCartItems() {
         setTimeout(() => {
             retrievedObject = JSON.parse(sessionStorage.getItem('cartObject'));
