@@ -120,6 +120,26 @@
 	</div>
 	<!---sub headermenu end--->
 
+
+	<!-- success Modal -->
+	<div class="modal fade" id="contactSuccessModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+		aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content bg-dark wishlist-modal">
+				<div class="modal-header">
+					<h5 class="modal-title" style="color: #b5c547;" id="exampleModalLabel">Submitted!</h5>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="wishlist-heart-wrapper">
+						<i class="fa-solid fa-check wishlist-heart"></i>
+						Thank you for contact us. We will get in touch with you.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="container mt-4">
 		<div class="row contact-section">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-12 bg-login">
@@ -141,12 +161,12 @@
 				</div>
 
 				<div class="input-wrap">
-					<label>Address</label>
+					<label>Place your Query</label>
 					<textarea id="address"></textarea>>
 				</div>
 
 				<div class="input-wrap">
-					<button class="contact-button">Send Now</button>
+					<button class="contact-button" id="send-contacts">Send Now</button>
 				</div>
 			</div>
 
@@ -198,25 +218,25 @@
 				</div>
 
 				<div class="col-lg-2 col-md-2 col-sm-12 col-12 p-2">
-					<h5 class="mt-2">Shop</h5><br>
+					<h5 class="mt-2">More</h5><br>
 					<ul style="font-size: 14px;">
+						<li><a href="about.html">About Us</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
 						<li><a href="faq.html">FAQ</a></li>
 						<li><a href="terms.html">Terms & Conditions</a></li>
 						<li><a href="delivery.html">Delivery Information</a></li>
-						<li><a href="about.html">About Us</a></li>
 						<li><a href="policy.html">Privacy Policy</a></li>
 					</ul>
 				</div>
 
 				<div class="col-lg-2 col-md-2 col-sm-12 col-12 p-2">
-					<h5 class="mt-2">Account</h5><br>
+					<h5 class="mt-2">Category</h5><br>
 					<ul style="font-size: 14px;">
-						<li><a href="account.html">Account</a></li>
-						<li><a href="account.html">Order History</a></li>
-						<li><a href="account.html">Wish List</a></li>
-						<li><a href="newsletter.html">Newsletter</a></li>
+						<li><a href="category.html?cat=rooftop">Rooftop</a></li>
+						<li><a href="category.html?cat=garden">Garden</a></li>
+						<li><a href="category.html?cat=living">Living room</a></li>
+						<li><a href="category.html?cat=balcony">Balcony</a></li>
 						<li><a href="account.html">Specials</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
 					</ul>
 				</div>
 
@@ -275,42 +295,32 @@
 
 	<script>
 		$(document).ready(function () {
-			let urlString = location.search.split("=");
-			$("#cat1").hide();
-			$("#cat2").hide();
-			$("#cat3").hide();
-			$("#cat4").hide();
-			$("#cat5").hide();
-			$("#cat6").hide();
+			$("#send-contacts").click(function (e) {
 
-			if (urlString && urlString[1]) {
-				if (urlString[1] == 'rooftop') {
-					$("#categoryType").html("Category / Rooftop plants");
-					$("#cat1").show();
-					$("#cat2").show();
-					$("#cat3").show();
-					$("#cat5").show();
-					$("#cat6").show();
+				let name = $("#fullname").val();
+				let email = $("#email").val();
+				let mobile = $("#mobile").val();
+				let address = $("#address").val();
+
+				if (name == '') {
+					alert('Invalid Name');
+					return;
 				}
-				if (urlString[1] == 'garden') {
-					$("#categoryType").html("Category / Garden plants");
-					$("#cat3").show();
-					$("#cat4").show();
-					$("#cat5").show();
-					$("#cat6").show();
+				if (email == '') {
+					alert('Invalid Email');
+					return;
 				}
-				if (urlString[1] == 'living') {
-					$("#categoryType").html("Category / Living room plants");
-					$("#cat4").show();
-					$("#cat5").show();
+				if (mobile == '') {
+					alert('Invalid Mobile');
+					return;
 				}
-				if (urlString[1] == 'balcony') {
-					$("#categoryType").html("Category / Balcony plants");
-					$("#cat1").show();
-					$("#cat4").show();
-					$("#cat5").show();
+				if (address == '') {
+					alert('Invalid Address');
+					return;
 				}
-			}
+
+				$("#contactSuccessModal").modal('show');
+			})
 		})
 
 	</script>
