@@ -399,7 +399,7 @@ iframe {
     background-size: cover;
     background-image: url('../images/title.jpg');
     -webkit-background-clip: text;
-    animation: background-text-animation 15s linear infinite;
+    animation: background-text-animation 155s linear infinite;
   }
   @keyframes background-text-animation {
     0%{
