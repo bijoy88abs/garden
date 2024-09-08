@@ -258,12 +258,23 @@ body {
     font-weight: 400;
 }
 
+.close-btn-icon {
+    color: white;
+    background-color: transparent;
+    right: 20px;
+    position: absolute;
+    cursor: pointer;
+}
+
 .cart-1 p.textp {
     text-align: center;
     color: white;
     font-size: 14px;
     padding: 0px;
     margin: 0px;
+    position: relative;
+    z-index: 4;
+    background-color: #00160C;
 }
 
 .button-wrap {
