@@ -656,7 +656,7 @@
 			<div class="col-lg-7 col-md-7 col-sm-12 col-12">
 				<div class="cover-1-desc">
 					<h3>Bengals Green Plants & Pots</h3>
-					<h1><span>Create a tropical <br>interior</span> in your home.</h1>
+					<h1 id="cover-1-title"><span>Create a tropical <br>interior</span> in your home.</h1>
 					<p>This category of gardening products contains the following: - Organic liquid fertilizers that are
 						100% water soluble. They are suitable for all vegetables and flowers and give visible results in
 						7 days of usage.</p>
@@ -676,22 +676,22 @@
 	<!--cover-2 sec start-->
 	<div class="container">
 		<div class="row">
-			<div class="cover-2">
+			<div class="cover-2" id="cover-2-sec">
 				<div class="cover-2-item">
-					<h2>3000+</h2>
+					<h2><span class="count-orders">1000</span></h2>
 					<p>orders in month</p>
 				</div>
 				<div class="cover-2-item">
-					<h2>17+</h2>
+					<h2><span class="count-orders">30</span></h2>
 					<p>plants and flowers categories</p>
 				</div>
 				<div class="cover-2-item">
-					<h2>10+</h2>
+					<h2><span class="count-orders">10</span></h2>
 					<p>years of experience</p>
 				</div>
 				<div class="cover-2-item">
-					<h2>4.9+</h2>
-					<p>happy clients and partners</p>
+					<h2><span class="count-orders">8.9</span></h2>
+					<p>happy clients and partners rating</p>
 				</div>
 			</div>
 		</div>
@@ -899,7 +899,7 @@
 			<div class="col-lg-7 col-md-7 col-sm-12 col-12">
 				<div class="cover-3-desc">
 					<h3>Bengals Green Plants & Pots</h3>
-					<h1><span>Explore Wide Range Of<br> Gifts</span></h1>
+					<h1 id="cover-3-title"><span>Explore Wide Range Of<br> Gifts</span></h1>
 					<p>Gardening Gifts for gardening lovers like us! Gardening products can sometimes be hard to look
 						for, especially when yo're not sure where to look. But if yo've found us, then you can get
 						some home garden accessories and supplies for your friends, families, and other loved ones who
@@ -1134,14 +1134,15 @@
 	</div>
 	<!--cover-6 sec end-->
 
-	<div class="container">
+	<div class="container" id="id_testimonial">
 		<div class="row testimonial">
 			<div class="col-12">
 				<p class="testimonial-title">Bengals Green Plants & Pots</p>
 				<h2>Testimonials</h2>
 				<div class="cover-7">
 					<img src="images/quote.png" class="img-fluid"><br>
-					<p class="testimonial-desc">I have been using potting Mix from Ps Plants&Pots and it's really
+					<p class="testimonial-desc">I have been using potting Mix from Bengals Green Plants & Pots and it's
+						really
 						superb.<br>
 						Chetan Soni. Awesome! Absolutely Loved it! .</p>
 					<label class="testimonial-author">- Kaylash Murti</label>
@@ -1262,6 +1263,81 @@
 
 					$("#num-slider-body1").addClass('d-none');
 					$("#num-slider-body2").removeClass('d-none')
+				}
+			});
+		});
+
+		$(document).ready(function () {
+			$(".testimonial").hide();
+			$(".cover-2").hide();
+			$("#cover-1-title").addClass('cover-hide-style');
+			$("#cover-3-title").addClass('cover-hide-style');
+
+			$(document).bind('scroll', function (ev) {
+				let scrollOffset = $(document).scrollTop();
+				let containerOffset = $('#id_testimonial').offset().top - window.innerHeight;
+				if (scrollOffset > containerOffset) {
+					// $(".testimonial").slideDown();
+					$(".testimonial").slideToggle(1000);
+					// unbind event
+					$(document).unbind('scroll');
+				}
+			});
+
+			$(document).bind('scroll', function (ev) {
+				let scrollOffset = $(document).scrollTop();
+				let containerOffset = $('#cover-1-title').offset().top - window.innerHeight;
+				if (scrollOffset > containerOffset) {
+					$("#cover-1-title").animate({ fontSize: '60px' }, 1000);
+					$("#cover-1-title").removeClass('cover-hide-style');
+					// unbind event
+					$(document).unbind('scroll');
+				}
+			});
+
+			$(document).bind('scroll', function (ev) {
+				let scrollOffset = $(document).scrollTop();
+				let containerOffset = $('#cover-3-title').offset().top - window.innerHeight;
+				if (scrollOffset > containerOffset) {
+					$("#cover-3-title").animate({ fontSize: '60px' }, 1000);
+					$("#cover-3-title").removeClass('cover-hide-style');
+					// unbind event
+					$(document).unbind('scroll');
+				}
+			});
+
+			$(document).bind('scroll', function (ev) {
+				let scrollOffset = $(document).scrollTop();
+				let containerOffset = $('#cover-2-sec').offset().top - window.innerHeight;
+				if (scrollOffset > containerOffset) {
+					$("#cover-2-sec").slideToggle(1000);
+					$(".count-orders").each(function (e, i) {
+						$(this)
+							.prop("Counter", 0)
+							.animate(
+								{
+									Counter: $(this).text(),
+								},
+								{
+									duration: 2000,
+									easing: "swing",
+									step: function (now) {
+										now = Number(Math.ceil(now)).toLocaleString('en');
+										$(this).text(`${now}+`);
+										if (e == 0 || e == 2) {
+											$(this).addClass('text-olive');
+										}
+										
+										if (e == 1 || e == 3) {
+											$(this).addClass('text-yellow');
+										}
+									},
+
+								}
+							);
+					});
+					// unbind event
+					$(document).unbind('scroll');
 				}
 			});
 		});
