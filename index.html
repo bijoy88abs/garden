@@ -1268,10 +1268,8 @@
 
 		$(document).ready(function () {
 			$(".testimonial").hide();
-			$(".cover-2").hide();
 			$("#cover-1-title").addClass('cover-hide-style');
 			$("#cover-3-title").addClass('cover-hide-style');
-
 
 			$(document).bind('scroll', function (ev) {
 				let scrollOffset = $(document).scrollTop();
@@ -1279,10 +1277,8 @@
 				let containerOffset = $('#cover-3-title').offset().top - window.innerHeight;
 				let containerOffset2 = $('#cover-2-sec').offset().top - window.innerHeight;
 
-
 				let containerOffset3 = $('#id_testimonial').offset().top - window.innerHeight;
 				if (scrollOffset > containerOffset3) {
-					// $(".testimonial").slideDown();
 					$(".testimonial").slideToggle(1000);
 					// unbind event
 					$(document).unbind('scroll');
@@ -1301,8 +1297,8 @@
 				}
 
 
-				if (scrollOffset > containerOffset2 && scrollCount == 0) {
-					$("#cover-2-sec").fadeIn(1000);
+				if ((scrollOffset > containerOffset2) && (scrollCount == 0)) {
+					$("#cover-2-sec").fadeIn(2000);
 					scrollCount = 1;
 					$(".count-orders").each(function (e) {
 						$(this)
@@ -1316,7 +1312,6 @@
 									easing: "swing",
 									step: function (now) {
 										now = Number(Math.ceil(now));
-										console.log(now, '===')
 										$(this).text(`${now}+`);
 
 										if (e == 0 || e == 2) {
