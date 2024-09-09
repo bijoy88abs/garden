@@ -296,13 +296,6 @@
 
 }
 
-.bg-shadow {
-    background: url('../images/bg2.png') fixed;
-    background-size: cover;
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.5);
-
-}
-
 .cover-6-desc .fa-square-arrow-up-right {
     padding-left: 10px;
     font-size: 35px;
