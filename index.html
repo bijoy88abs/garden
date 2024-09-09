@@ -717,8 +717,7 @@
 								<div class="modal-content bg-dark cart-modal">
 									<div class="modal-header">
 										<h5 class="modal-title" id="exampleModalLabel" style="color: #b5c547;">Plant
-											Care Supplies for your
-											home.!</h5>
+											Care Supplies!</h5>
 										<a class="close-btn-icon" data-bs-dismiss="modal" aria-label="Close">
 											<i class="fa-solid fa-x"></i>
 										</a>
@@ -811,8 +810,7 @@
 								<div class="modal-content bg-dark cart-modal">
 									<div class="modal-header">
 										<h5 class="modal-title" id="exampleModalLabel" style="color: #b5c547;">Potting
-											Soil & Mixtures for your
-											plants.</h5>
+											Soil & Mixtures!</h5>
 										<a class="close-btn-icon" data-bs-dismiss="modal" aria-label="Close">
 											<i class="fa-solid fa-x"></i>
 										</a>
@@ -863,8 +861,7 @@
 							<div class="modal-dialog">
 								<div class="modal-content bg-dark cart-modal">
 									<div class="modal-header">
-										<h5 class="modal-title" id="exampleModalLabel">Bengals Green Plants & Pots
-											journey.</h5>
+										<h5 class="modal-title" id="exampleModalLabel">Bengals Green Plants & Pots.</h5>
 										<a class="close-btn-icon" data-bs-dismiss="modal" aria-label="Close">
 											<i class="fa-solid fa-x"></i>
 										</a>
@@ -1267,51 +1264,47 @@
 			});
 		});
 
+		scrollCount = 0;
+
 		$(document).ready(function () {
 			$(".testimonial").hide();
 			$(".cover-2").hide();
 			$("#cover-1-title").addClass('cover-hide-style');
 			$("#cover-3-title").addClass('cover-hide-style');
 
+
 			$(document).bind('scroll', function (ev) {
 				let scrollOffset = $(document).scrollTop();
-				let containerOffset = $('#id_testimonial').offset().top - window.innerHeight;
-				if (scrollOffset > containerOffset) {
+				let containerOffset1 = $('#cover-1-title').offset().top - window.innerHeight;
+				let containerOffset = $('#cover-3-title').offset().top - window.innerHeight;
+				let containerOffset2 = $('#cover-2-sec').offset().top - window.innerHeight;
+
+
+				let containerOffset3 = $('#id_testimonial').offset().top - window.innerHeight;
+				if (scrollOffset > containerOffset3) {
 					// $(".testimonial").slideDown();
 					$(".testimonial").slideToggle(1000);
 					// unbind event
 					$(document).unbind('scroll');
 				}
-			});
 
-			$(document).bind('scroll', function (ev) {
-				let scrollOffset = $(document).scrollTop();
-				let containerOffset = $('#cover-1-title').offset().top - window.innerHeight;
-				if (scrollOffset > containerOffset) {
+				if (scrollOffset > containerOffset1) {
 					$("#cover-1-title").animate({ fontSize: '60px' }, 1000);
 					$("#cover-1-title").removeClass('cover-hide-style');
 					// unbind event
-					$(document).unbind('scroll');
 				}
-			});
 
-			$(document).bind('scroll', function (ev) {
-				let scrollOffset = $(document).scrollTop();
-				let containerOffset = $('#cover-3-title').offset().top - window.innerHeight;
 				if (scrollOffset > containerOffset) {
 					$("#cover-3-title").animate({ fontSize: '60px' }, 1000);
 					$("#cover-3-title").removeClass('cover-hide-style');
 					// unbind event
-					$(document).unbind('scroll');
 				}
-			});
 
-			$(document).bind('scroll', function (ev) {
-				let scrollOffset = $(document).scrollTop();
-				let containerOffset = $('#cover-2-sec').offset().top - window.innerHeight;
-				if (scrollOffset > containerOffset) {
-					$("#cover-2-sec").slideToggle(1000);
-					$(".count-orders").each(function (e, i) {
+
+				if (scrollOffset > containerOffset2 && scrollCount == 0) {
+					$("#cover-2-sec").fadeIn(1000);
+					scrollCount = 1;
+					$(".count-orders").each(function (e) {
 						$(this)
 							.prop("Counter", 0)
 							.animate(
@@ -1322,24 +1315,24 @@
 									duration: 2000,
 									easing: "swing",
 									step: function (now) {
-										now = Number(Math.ceil(now)).toLocaleString('en');
+										now = Number(Math.ceil(now));
+										console.log(now, '===')
 										$(this).text(`${now}+`);
+
 										if (e == 0 || e == 2) {
 											$(this).addClass('text-olive');
 										}
-										
-										if (e == 1 || e == 3) {
+										if (e == 3 || e == 1) {
 											$(this).addClass('text-yellow');
 										}
 									},
-
 								}
 							);
 					});
 					// unbind event
-					$(document).unbind('scroll');
 				}
 			});
+
 		});
 	</script>
 
