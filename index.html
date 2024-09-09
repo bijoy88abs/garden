@@ -1121,8 +1121,28 @@
 							Stay updated
 							with our offers and news.</p>
 						<div class="cover-6-desc-input">
-							<input type="text" placeholder="Send mail">
-							<i class="fa-solid fa-square-arrow-up-right"></i>
+							<input type="text" placeholder="Send mail" id="subscribe-email">
+							<i class="fa-solid fa-square-arrow-up-right" id="send-mail"></i>
+						</div>
+						<span id="subscribe-email-error" style="color: rgb(209, 58, 31);"></span>
+						<div class="modal fade" id="subscribeMailModal" tabindex="-1"
+							aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog">
+								<div class="modal-content bg-dark wishlist-modal">
+									<div class="modal-header">
+										<h5 class="modal-title" style="color: #b5c547;" id="exampleModalLabel">
+											Submitted!</h5>
+										<button type="button" class="btn-close" data-bs-dismiss="modal"
+											aria-label="Close"></button>
+									</div>
+									<div class="modal-body">
+										<div class="wishlist-heart-wrapper" style="text-align: center;">
+											<i class="fa-solid fa-check wishlist-heart"></i>
+											Your mail subscribed successfully.
+										</div>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -1266,6 +1286,18 @@
 
 		scrollCount = 0;
 
+		$(document).ready(function (e) {
+			$('#send-mail').click(function () {
+				$('#subscribe-email-error').html('');
+				let email = $('#subscribe-email').val();
+				if (email == '') {
+					$('#subscribe-email-error').html('Invalid email');
+				} else {
+					$("#subscribeMailModal").modal('show');
+				}
+			})
+		})
+
 		$(document).ready(function () {
 			$(".testimonial").hide();
 			$("#cover-1-title").addClass('cover-hide-style');
@@ -1285,13 +1317,13 @@
 				}
 
 				if (scrollOffset > containerOffset1) {
-					$("#cover-1-title").animate({ fontSize: '60px' }, 1000);
+					$("#cover-1-title").animate({ fontSize: '60px' }, 2000);
 					$("#cover-1-title").removeClass('cover-hide-style');
 					// unbind event
 				}
 
 				if (scrollOffset > containerOffset) {
-					$("#cover-3-title").animate({ fontSize: '60px' }, 1000);
+					$("#cover-3-title").animate({ fontSize: '60px' }, 2000);
 					$("#cover-3-title").removeClass('cover-hide-style');
 					// unbind event
 				}

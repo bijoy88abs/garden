@@ -297,7 +297,7 @@
 }
 
 
-.cover-6-desc i {
+.cover-6-desc .fa-square-arrow-up-right {
     padding-left: 10px;
     font-size: 35px;
     position: absolute;
@@ -321,26 +321,31 @@
     }
 
 }
-.testimonial .testimonial-title{
+
+.testimonial .testimonial-title {
     font-size: 18px;
     color: #B5C547;
     margin-bottom: 0px;
 }
-.testimonial h2{
+
+.testimonial h2 {
     font-size: 40px;
     color: white;
     font-weight: bold;
 }
-.cover-7{
+
+.cover-7 {
     border: 1px solid white;
     border-radius: 8px;
     padding: 30px;
 }
-.cover-7 .testimonial-desc{
+
+.cover-7 .testimonial-desc {
     font-size: 22px;
-    color:#B5C547;
+    color: #B5C547;
 }
-.cover-7 .testimonial-author{
+
+.cover-7 .testimonial-author {
     font-size: 16px;
     color: white;
     font-weight: bold;
